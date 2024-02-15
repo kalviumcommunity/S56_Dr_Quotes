@@ -12,7 +12,7 @@
 - Social Sharing:
 - Continuous Improvement: Actively taking feedback from users and regularly update
 
-  ## Contributing
+## Contributing
 
 Thank you for considering contributing to the Dr. Quotes project! We welcome contributions from everyone.
 
