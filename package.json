@@ -1,0 +1,19 @@
+{
+  "name": "s56_dr_quotes",
+  "version": "1.0.0",
+  "description": "\"Dr. Quotes\" is a website dedicated to collecting and sharing the most unusual, bizarre, and hilarious quotes you'll ever encounter.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kalviumcommunity/S56_Dr_Quotes.git#main"
+  },
+  "author": "Dhruv Patil",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kalviumcommunity/S56_Dr_Quotes/issues"
+  },
+  "homepage": "https://github.com/kalviumcommunity/S56_Dr_Quotes/tree/main#readme"
+}
