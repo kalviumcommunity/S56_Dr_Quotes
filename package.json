@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/kalviumcommunity/S56_Dr_Quotes/issues"
   },
-  "homepage": "https://github.com/kalviumcommunity/S56_Dr_Quotes/tree/main#readme"
+  "homepage": "https://github.com/kalviumcommunity/S56_Dr_Quotes/tree/main#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
