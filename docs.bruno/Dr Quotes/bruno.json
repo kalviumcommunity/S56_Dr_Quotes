@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "Dr Quotes",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}
