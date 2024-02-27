@@ -1,0 +1,117 @@
+.quote-container {
+    width: 50rem;
+    max-width: 60rem;
+    margin: 0 auto;
+    padding: 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #fffcfc;
+    border-radius: 1.2rem;
+    box-shadow: rgba(99, 99, 99, 0.6) 0px 2px 8px 0px;
+    margin-top: 120px;
+    margin-left: 220px;
+    height: 300px;
+  }
+
+  .quote-container-content {
+    min-height: 14rem;
+  }
+  
+  .quote-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+  }
+
+  .quote-controls button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.2rem;
+    background: #000000;
+    padding: 0.6rem 1.2rem;
+    color: white;
+    font-family: inherit;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    border-radius: 10rem;
+    transition: all 0.4s ease;
+    min-width: 15rem;
+  }
+  .quote-controls button:hover {
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 6px 24px 0px,
+      rgba(52, 1, 123, 0.1) 0px 0px 0px 1px;
+  }
+ .quote-controls button:hover {
+    box-shadow: none;
+    background-color: #08a0ff;
+  }
+  .quote-controls {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+.quote-author{
+    /* border: 3px solid rgb(244, 0, 0); */
+    width: 30%;
+    display: flex;
+    gap: 20px;
+    height: 70px;
+    margin-top: -10px;
+    margin-left: -20px;
+    justify-content: center;
+    align-items: center;
+}
+.author-img{
+    border: 3px solid black;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+}
+.author-name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+.blockquote {
+    padding: 60px 80px 40px;
+    position: relative;
+}
+.blockquote p {
+    font-family: "Utopia-italic";
+    font-size: 35px;
+    font-weight: 700px;
+    text-align: center;
+    margin-top: -55px;
+}
+/* .blockquote:: {
+    position: absolute;
+    font-family: 'FontAwesome';
+    top: -150px;
+    right: 0;
+    content:"\f10d";
+    font-size: 200px;
+    color: rgba(0,0,0,0.1);
+     
+  } */
+  .profile-img{
+    width: 60px;
+    height: 60px;
+  }
+.likes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+
+}
+.comment{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+
+}
