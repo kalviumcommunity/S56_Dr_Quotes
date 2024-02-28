@@ -35,5 +35,6 @@ We have a Code of Conduct that all contributors are expected to adhere to. Pleas
 
 ### Deployment Link:-
 [link](https://dr-quotes.onrender.com/)
+[link](https://drquotes.netlify.app/)
 
 Thank you for helping make Dr. Quotes better!
