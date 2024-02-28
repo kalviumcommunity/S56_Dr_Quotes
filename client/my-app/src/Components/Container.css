@@ -41,13 +41,11 @@
     transition: all 0.4s ease;
     min-width: 15rem;
   }
-  .quote-controls button:hover {
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 6px 24px 0px,
-      rgba(52, 1, 123, 0.1) 0px 0px 0px 1px;
-  }
  .quote-controls button:hover {
     box-shadow: none;
     background-color: #08a0ff;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 6px 24px 0px,
+      rgba(52, 1, 123, 0.1) 0px 0px 0px 1px;
   }
   .quote-controls {
     opacity: 0.6;
@@ -87,16 +85,6 @@
     text-align: center;
     margin-top: -55px;
 }
-/* .blockquote:: {
-    position: absolute;
-    font-family: 'FontAwesome';
-    top: -150px;
-    right: 0;
-    content:"\f10d";
-    font-size: 200px;
-    color: rgba(0,0,0,0.1);
-     
-  } */
   .profile-img{
     width: 60px;
     height: 60px;

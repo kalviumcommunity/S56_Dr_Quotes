@@ -16,7 +16,7 @@ const Container = ({ quote, onNewQuote, isLoading, isError }) => (
        </div>
        <div className='author-name'> <h3>Dr.Quotes</h3>  <IoCheckmarkDoneCircleSharp size={20} /></div>
      </div>
-     <blockquote class="blockquote"><p>“Not only is the Universe stranger than we think, it is stranger than we can think.”
+     <blockquote className="blockquote"><p>“Not only is the Universe stranger than we think, it is stranger than we can think.”
 ― Werner Heisenberg,</p></blockquote>
 <br />
     </div>
