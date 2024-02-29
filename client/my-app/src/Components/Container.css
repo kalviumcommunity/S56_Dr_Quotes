@@ -1,6 +1,7 @@
 .quote-container {
     width: 50rem;
     max-width: 60rem;
+    position: absolute;
     margin: 0 auto;
     padding: 2rem 2rem;
     display: flex;
@@ -8,7 +9,7 @@
     justify-content: space-between;
     background-color: #fffcfc;
     border-radius: 1.2rem;
-    box-shadow: rgba(99, 99, 99, 0.6) 0px 2px 8px 0px;
+    box-shadow: rgba(184, 184, 184, 0.6) 0px 3px 20px 10px;
     margin-top: 120px;
     margin-left: 220px;
     height: 300px;
@@ -22,7 +23,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 1rem;
+    margin-top: 2rem;
   }
 
   .quote-controls button {
@@ -46,7 +47,9 @@
     background-color: #08a0ff;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 6px 24px 0px,
       rgba(52, 1, 123, 0.1) 0px 0px 0px 1px;
+    color: #000000;
   }
+ 
   .quote-controls {
     opacity: 0.6;
     cursor: not-allowed;
@@ -103,3 +106,27 @@
     gap: 12px;
 
 }
+.Options{
+  position: absolute;
+  right: 40px;
+  margin-top: -20px;
+}
+
+.blockquote::after {
+    content: "";
+    top: 150px;
+    left: 50%;
+    margin-left: -110px;
+    position: absolute;
+    border-bottom: 3px solid #bf0024;
+    height: 3.5px;
+    width: 220px;
+}
+.share{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  
+}
+

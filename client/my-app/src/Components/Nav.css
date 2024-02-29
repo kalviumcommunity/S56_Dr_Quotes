@@ -1,12 +1,14 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 nav {
     width: 95%;
-    height: 120px;
+    height: 115px;
     padding: 0 3rem;
     display: flex;
     gap: 0.6rem;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0px 1px 5px rgba(171, 167, 178, 0.3);
+    box-shadow: #279b9b99 0px 3px 20px 10px;
     background-color: #fff;
     margin-top: -10px;
     margin-left: -20px;
@@ -15,5 +17,12 @@ nav {
 .logo{
     height: 120px;
     width: auto;
-    margin-top: 5px;
+    margin-top: 0px;
+}
+
+h1{
+  font-size: 30px;
+  font-family: "Lato", sans-serif;
+  font-weight: 380;
+  font-style: normal;
 }

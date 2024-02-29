@@ -9,6 +9,10 @@ const Nav = () => {
     <div className='logo'>
     <img src={logo} alt="logo" className="logo" />
     </div>
+    <div className='builder'><h1>Quote Builder</h1></div>
+    <div className='topics'><h1>Topics</h1></div>
+    <div className='about'><h1>About us</h1></div>
+    
     <button className="dark-mode">
     <MdDarkMode  size={40}/>
     </button>
