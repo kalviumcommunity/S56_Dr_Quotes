@@ -34,7 +34,7 @@ If you encounter any issues or have suggestions for improvements, please suggest
 We have a Code of Conduct that all contributors are expected to adhere to. Please review it before contributing. link to the Code of Conduct will be added shortly.
 
 ### Deployment Link:-
-[link](https://dr-quotes.onrender.com/)
-[link](https://drquotes.netlify.app/)
+- Database Deployment-> [link](https://dr-quotes.onrender.com/)
+- Frontend Deployment -> [link](https://drquotes.netlify.app/)
 
 Thank you for helping make Dr. Quotes better!
