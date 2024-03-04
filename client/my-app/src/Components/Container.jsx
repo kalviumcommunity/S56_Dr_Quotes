@@ -8,6 +8,7 @@ import { GoShare } from 'react-icons/go';
 import { BsThreeDots } from 'react-icons/bs';
 
 const Container = ({ quotes }) => {
+  if (!quotes.length) return <p>No quotes available.</p>;
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleNextQuote = () => {
