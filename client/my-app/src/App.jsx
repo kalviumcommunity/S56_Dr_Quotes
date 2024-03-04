@@ -9,15 +9,18 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get('http://localhost:3000/api/quotes')
-      .then(res => {
-        setQuotes(res.data);
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('https://dr-quotes.onrender.com/api/quotes');
+        setQuotes(response.data);
         setLoading(false);
-      })
-      .catch(error => {
+      } catch (error) {
         console.error('Error fetching quotes:', error);
-        setLoading(false); 
-      });
+        setLoading(false);
+      }
+    };
+
+    fetchData();
   }, []);
 
   return (
