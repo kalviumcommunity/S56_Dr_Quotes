@@ -1,37 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import './App.css';
-import Nav from './Components/Nav';
-import Container from './Components/Container';
-import axios from 'axios';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; 
+import Form from './Pages/Form'; 
+import Home from './Pages/Home';
 
-function App() { 
-  const [quotes, setQuotes] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get('https://dr-quotes.onrender.com/api/quotes');
-        setQuotes(response.data);
-        setLoading(false);
-      } catch (error) {
-        console.error('Error fetching quotes:', error);
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
-
+function App() {
   return (
-    <>
-      <Nav/>
-      {loading ? (
-        <p>Loading...</p>
-      ) : (
-        <Container quotes={quotes} />
-      )}
-    </>
+    <Router>
+      <Routes>
+        <Route path="/quote-builder" element={<Form />} />
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </Router>
   );
 }
 

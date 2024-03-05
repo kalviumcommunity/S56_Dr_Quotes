@@ -1,0 +1,81 @@
+
+
+
+.container {
+  max-width: 500px;
+  width: 100%;
+  margin: 50px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 5px 5px 20px rgba(3, 3, 4, 0.1);
+  border: 3px solid black;
+  margin-top: 50px;
+  margin-left: 450px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 19px;
+  margin-bottom: 9px;
+  font-weight: 400;
+}
+.nquote{
+  text-align: center;
+  font-size: xx-large;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.exit{
+  background-color: rgb(255, 44, 44);
+  width: 50px;
+  height: 42px;
+  border: 3px solid black;
+  font-weight: 800;
+margin-top: -30px;
+margin-left: -10px;
+}
+.exit:hover{
+  background-color: rgb(196, 39, 39);
+}
+input,
+textarea {
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #f9f9f9;
+
+  font-size: 14px;
+}
+
+input:hover,
+textarea:hover {
+  border-color: #aaa;
+}
+
+button {
+  cursor: pointer;
+  padding: 10px;
+  background: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+button:hover {
+  background: #275d2a;
+}
+
+.alert {
+color: red;
+  font-size: 15px;
+  font-weight: 400;
+  margin-top: -10px;
+  margin-bottom: 15px;
+}
