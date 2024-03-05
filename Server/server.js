@@ -6,6 +6,7 @@ const cors = require('cors');
 const app = express();
 // uisng cors middleware
 app.use(cors());
+app.use(express.json()); // Middleware to parse JSON body
 
 const port = process.env.PORT || 3000;
 
@@ -27,6 +28,18 @@ app.get('/api/quotes', async (req, res) => {
     res.json(quotes);
   } catch (error) {
     console.error('Error fetching quotes:', error);
+    res.status(500).json({ message: 'Server Error' });
+  }
+});
+
+// Route to add a new quote to the Dr_Quotes collection
+app.post('/api/add-quotes', async (req, res) => {
+  try {
+    const newQuote = req.body;
+    const createdQuote = await DrQuote.create(newQuote);
+    res.status(201).json(createdQuote);
+  } catch (error) {
+    console.error('Error adding quote:', error);
     res.status(500).json({ message: 'Server Error' });
   }
 });
