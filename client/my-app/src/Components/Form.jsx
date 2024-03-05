@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './Forms.css'; 
-import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
 
 const AddQuoteForm = () => {
   const [formData, setFormData] = useState({
@@ -25,21 +24,35 @@ const AddQuoteForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const dataToSend = {
+      content: formData.content,
+      speaker: formData.speaker,
+      author: {
+        name: formData.authorName,
+        birthdate: formData.authorBirthdate,
+        profileimg: formData.profileimg
+      }
+    };
+
     try {
-      await axios.post('https://dr-quotes.onrender.com/api/add-quotes', formData);
-      setSuccessMessage("Quote added successfully!");
-      setErrorMessage(""); // Reset error message if there was any
-      setFormData({
-        content: "",
-        speaker: "",
-        authorName: "",
-        authorBirthdate: "",
-        profileimg: ""
-      });
+      const response = await axios.post('https://dr-quotes.onrender.com/api/add-quotes', dataToSend);
+      if (response.status === 200) {
+        setSuccessMessage("Quote added successfully!");
+        setErrorMessage("");
+        setFormData({
+          content: "",
+          speaker: "",
+          authorName: "",
+          authorBirthdate: "",
+          profileimg: ""
+        });
+      } else {
+        throw new Error("Failed to add quote. Please try again.");
+      }
     } catch (error) {
       console.error('Error adding quote:', error);
       setErrorMessage("Error adding quote. Please try again.");
-      setSuccessMessage(""); // Reset success message if there was any
+      setSuccessMessage("");
     }
   };
 
