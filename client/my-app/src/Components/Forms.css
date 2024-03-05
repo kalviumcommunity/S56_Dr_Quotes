@@ -39,7 +39,8 @@ margin-top: -30px;
 margin-left: -10px;
 }
 .exit:hover{
-  background-color: rgb(196, 39, 39);
+  background-color: rgb(255, 0, 0);
+  color: black;
 }
 input,
 textarea {

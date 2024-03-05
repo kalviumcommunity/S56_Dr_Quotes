@@ -5,12 +5,10 @@ import Home from './Pages/Home';
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/quote-builder" element={<Form />} />
-        <Route path="/" element={<Home />} />
-      </Routes>
-    </Router>
+    <Routes>
+     <Route path="/quote-builder" element={<Form />} />
+     <Route path="/" element={<Home />} />
+    </Routes>
   );
 }
 

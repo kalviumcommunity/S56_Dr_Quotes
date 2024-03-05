@@ -3,6 +3,7 @@ import axios from 'axios';
 import './Forms.css'; 
 import { Link } from 'react-router-dom';
 
+
 const AddQuoteForm = () => {
   const [formData, setFormData] = useState({
     content: "",
@@ -65,23 +66,23 @@ const AddQuoteForm = () => {
       <form onSubmit={handleSubmit}>
         <label>
           Content:
-          <input type="text" name="content" value={formData.content} onChange={handleChange} />
+          <input type="text" required name="content" value={formData.content} onChange={handleChange} />
         </label>
         <label>
           Speaker:
-          <input type="text" name="speaker" value={formData.speaker} onChange={handleChange} />
+          <input type="text" required name="speaker" value={formData.speaker} onChange={handleChange} />
         </label>
         <label>
           Author Name:
-          <input type="text" name="authorName" value={formData.authorName} onChange={handleChange} />
+          <input type="text" required name="authorName" value={formData.authorName} onChange={handleChange} />
         </label>
         <label>
           Author Birthdate:
-          <input type="text" name="authorBirthdate" value={formData.authorBirthdate} onChange={handleChange} />
+          <input type="text" required name="authorBirthdate" value={formData.authorBirthdate} onChange={handleChange} />
         </label>
         <label>
           Profile Image:
-          <input type="text" name="profileimg" value={formData.profileimg} onChange={handleChange} />
+          <input type="text" required name="profileimg" value={formData.profileimg} onChange={handleChange} />
         </label>
         <button type="submit">Submit</button>
       </form>
