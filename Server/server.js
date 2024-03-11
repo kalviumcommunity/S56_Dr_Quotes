@@ -53,7 +53,7 @@ app.post('/api/add-quotes', async (req, res) => {
 app.get('/api/quotes/:id', async (req, res) => {
   try {
     const quoteId = req.params.id;
-    const quote = await DrQuote.findById(quoteId);
+    const quote = await DrQuote.findById(quoteId); // Using findById 
     if (!quote) {
       return res.status(404).json({ message: 'Quote not found' });
     }
@@ -90,6 +90,7 @@ app.put('/api/quotes/:id', async (req, res) => {
 app.delete('/api/quotes/:id', async (req, res) => {
   try {
     const quoteId = req.params.id;
+
     const deletedQuote = await DrQuote.findByIdAndDelete(quoteId);
     if (!deletedQuote) {
       return res.status(404).json({ message: 'Quote not found' });
