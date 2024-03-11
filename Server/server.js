@@ -77,6 +77,23 @@ app.put('/api/quotes/:id', async (req, res) => {
     res.status(500).json({ message: 'Server Error' });
   }
 });
+app.delete('/api/quotes/:id', async (req, res) => {
+  try {
+    const quoteId = req.params.id;
+    
+    // Delete the quote from the database based on its _id
+    const deletedQuote = await DrQuote.findByIdAndDelete(quoteId);
+    
+    if (!deletedQuote) {
+      return res.status(404).json({ message: 'Quote not found' });
+    }
+    
+    res.json({ message: 'Quote deleted successfully' });
+  } catch (error) {
+    console.error('Error deleting quote:', error);
+    res.status(500).json({ message: 'Server Error' });
+  }
+});
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);

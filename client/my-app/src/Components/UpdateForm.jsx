@@ -4,7 +4,7 @@ import './Update.css';
 import Nav from '../Components/Nav';
 import { Link, useParams } from 'react-router-dom';
 
-const UpdateForm = ({ onUpdate }) => {
+const UpdateForm = () => {
   const [formData, setFormData] = useState({
     content: "",
     speaker: "",
@@ -19,7 +19,7 @@ const UpdateForm = ({ onUpdate }) => {
     // Fetching the quote data using the extracted ID
     const fetchQuote = async () => {
       try {
-        const response = await axios.get(`http://localhost:5173/api/quotes/${id}`); // Use the correct URL for your backend
+        const response = await axios.get(`https://dr-quotes.onrender.com/api/quotes/${id}`); // Use the correct URL for your backend
         const quoteData = response.data;
         setFormData({
           content: quoteData.content || "",
@@ -62,9 +62,9 @@ const UpdateForm = ({ onUpdate }) => {
     };
   
     try {
-      const response = await axios.put(`http://localhost:5173/api/quotes/${id}`, dataToSend); // Use the correct URL for your backend
+      const response = await axios.put(`https://dr-quotes.onrender.com/api/quotes/${id}`, dataToSend); // Use the correct URL for your backend
       if (response.status === 200) {
-        onUpdate();
+        console.log('Quote updated successfully.');
       } else {
         throw new Error("Failed to update quote. Please try again.");
       }
@@ -72,7 +72,6 @@ const UpdateForm = ({ onUpdate }) => {
       console.error('Error updating quote:', error);
     }
   };
-  
 
   return (
     <>

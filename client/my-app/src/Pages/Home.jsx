@@ -23,14 +23,23 @@ function Home() {
     fetchData();
   }, []);
 
+  const handleDelete = async (quoteId) => {
+    try {
+      await axios.delete(`https://dr-quotes.onrender.com/api/quotes/${quoteId}`);
+      // Filter out the deleted quote from the quotes state
+      setQuotes(quotes.filter(quote => quote._id !== quoteId));
+    } catch (error) {
+      console.error('Error deleting quote:', error);
+    }
+  };
+
   return (
     <>
       <Nav/>
       {loading ? (
-         <ReactLoading type="bars" color="blue"
-         height={200} width={80} />
+         <ReactLoading type="bars" color="blue" height={200} width={80} />
       ) : (
-        <Container quotes={quotes} />
+        <Container quotes={quotes} onDelete={handleDelete} />
       )}
     </>
   );

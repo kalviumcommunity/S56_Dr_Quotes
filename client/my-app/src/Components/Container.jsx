@@ -11,12 +11,16 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { FaEdit } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
-const Container = ({ quotes }) => {
+const Container = ({ quotes, onDelete }) => {
   if (!quotes.length) return <p>No quotes available.</p>;
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleNextQuote = () => {
     setCurrentIndex(prevIndex => (prevIndex + 1) % quotes.length);
+  };
+
+  const handleDelete = (quoteId) => {
+    onDelete(quoteId);
   };
 
   const quote = quotes[currentIndex];
@@ -32,9 +36,8 @@ const Container = ({ quotes }) => {
             <h3>{quote.author.name}</h3> <IoCheckmarkDoneCircleSharp size={20} />
           </div>
           <div className="Options">
-            {/* Pass quote ID to UpdateForm */}
             <Link to={`/UpdateForm/${quote._id}`}><FaEdit size={40} /></Link>
-            <RiDeleteBin6Line size={40} />
+            <button onClick={() => handleDelete(quote._id)}><RiDeleteBin6Line size={40} /></button>
           </div>
         </div>
         <blockquote className="blockquote">
