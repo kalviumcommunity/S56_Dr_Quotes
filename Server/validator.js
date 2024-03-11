@@ -1,6 +1,9 @@
 const Joi = require('joi');
 
-// Validation schema for adding 
+// Reusable validator function
+const validator = (schema) => (payload) => schema.validate(payload, { abortEarly: false });
+
+// Validation schema for adding
 const addQuoteSchema = Joi.object({
   content: Joi.string().required(),
   speaker: Joi.string().required(),
@@ -9,7 +12,7 @@ const addQuoteSchema = Joi.object({
   profileimg: Joi.string().uri().required()
 });
 
-// Validation schema for updating 
+// Validation schema for updating
 const updateQuoteSchema = Joi.object({
   content: Joi.string(),
   speaker: Joi.string(),
@@ -18,4 +21,8 @@ const updateQuoteSchema = Joi.object({
   profileimg: Joi.string().uri()
 });
 
-module.exports = { addQuoteSchema, updateQuoteSchema };
+// Create validator functions for add and update schemas
+const validateAddQuote = validator(addQuoteSchema);
+const validateUpdateQuote = validator(updateQuoteSchema);
+
+module.exports = { validateAddQuote, validateUpdateQuote };

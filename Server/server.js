@@ -1,13 +1,12 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const Joi = require('joi');
-const validator = require('./validator'); 
-require('dotenv').config(); 
 const DrQuote = require('./Models/users.js');
 const cors = require('cors');
 const app = express();
+const { validateAddQuote, validateUpdateQuote } = require('./validator'); // Import validator functions
+require('dotenv').config();
 app.use(cors());
-app.use(express.json()); 
+app.use(express.json());
 
 const port = process.env.PORT || 3000;
 
@@ -36,8 +35,8 @@ app.get('/api/quotes', async (req, res) => {
 app.post('/api/add-quotes', async (req, res) => {
   try {
     const newQuote = req.body;
-    // Validate the incoming data
-    const validationResult = validator.addQuoteSchema.validate(newQuote);
+    // Validate the incoming data using the validateAddQuote function
+    const validationResult = validateAddQuote(newQuote);
     if (validationResult.error) {
       console.error('Validation error:', validationResult.error.message);
       return res.status(400).json({ message: validationResult.error.details[0].message });
@@ -70,8 +69,8 @@ app.put('/api/quotes/:id', async (req, res) => {
   try {
     const quoteId = req.params.id;
     const updatedQuoteData = req.body;
-    // Validate the incoming data
-    const validationResult = validator.updateQuoteSchema.validate(updatedQuoteData);
+    // Validate the incoming data using the validateUpdateQuote function
+    const validationResult = validateUpdateQuote(updatedQuoteData);
     if (validationResult.error) {
       console.error('Validation error:', validationResult.error.message);
       return res.status(400).json({ message: validationResult.error.details[0].message });

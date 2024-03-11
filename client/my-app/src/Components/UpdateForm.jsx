@@ -19,8 +19,7 @@ const UpdateForm = () => {
     // Fetching the quote data using the extracted ID
     const fetchQuote = async () => {
       try {
-        const response = await axios.get(`https://dr-quotes.onrender.com/api/quotes/${id}`); // Use the correct URL for your backend
-        const quoteData = response.data;
+        const response = await axios.get(`https://dr-quotes.onrender.com/api/quotes/${id}`); 
         setFormData({
           content: quoteData.content || "",
           speaker: quoteData.speaker || "",
@@ -34,7 +33,7 @@ const UpdateForm = () => {
     };
 
     fetchQuote();
-  }, [id]); // Fetch quote data whenever the ID changes
+  }, [id]); // Fetching quote data whenever the ID changes
 
   const handleChange = (e) => {
     const { name, value } = e.target;
