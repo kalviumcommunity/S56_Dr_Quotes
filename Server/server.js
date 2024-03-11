@@ -43,6 +43,20 @@ app.post('/api/add-quotes', async (req, res) => {
     res.status(500).json({ message: 'Server Error' });
   }
 });
+// Route to fetch a specific quote by ID from the Dr_Quotes collection for update form.
+app.get('/api/quotes/:id', async (req, res) => {
+  try {
+    const quoteId = req.params.id;
+    const quote = await DrQuote.findOne({ id: quoteId });
+    if (!quote) {
+      return res.status(404).json({ message: 'Quote not found' });
+    }
+    res.json(quote);
+  } catch (error) {
+    console.error('Error fetching quote:', error);
+    res.status(500).json({ message: 'Server Error' });
+  }
+});
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);

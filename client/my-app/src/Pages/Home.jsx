@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Nav from '../Components/Nav';
 import Container from '../Components/Container';
 import axios from 'axios';
+import ReactLoading from "react-loading";
 
 function Home() { 
   const [quotes, setQuotes] = useState([]);
@@ -26,7 +27,8 @@ function Home() {
     <>
       <Nav/>
       {loading ? (
-        <p>Loading...</p>
+         <ReactLoading type="bars" color="blue"
+         height={200} width={80} />
       ) : (
         <Container quotes={quotes} />
       )}

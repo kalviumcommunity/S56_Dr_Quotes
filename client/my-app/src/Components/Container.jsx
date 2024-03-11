@@ -6,6 +6,10 @@ import { FaRegHeart } from 'react-icons/fa';
 import { FaRegComment } from 'react-icons/fa';
 import { GoShare } from 'react-icons/go';
 import { BsThreeDots } from 'react-icons/bs';
+import { GrUpdate } from "react-icons/gr";
+import { RiDeleteBin6Line } from "react-icons/ri";
+import { FaEdit } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const Container = ({ quotes }) => {
   if (!quotes.length) return <p>No quotes available.</p>;
@@ -28,7 +32,9 @@ const Container = ({ quotes }) => {
             <h3>{quote.author.name}</h3> <IoCheckmarkDoneCircleSharp size={20} />
           </div>
           <div className="Options">
-            <BsThreeDots size={50} />
+            {/* Pass quote ID to UpdateForm */}
+            <Link to={`/UpdateForm/${quote.id}`}><FaEdit size={40} /></Link>
+            <RiDeleteBin6Line size={40} />
           </div>
         </div>
         <blockquote className="blockquote">
