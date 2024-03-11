@@ -84,7 +84,11 @@ const AddQuoteForm = () => {
           Profile Image:
           <input type="text" required name="profileimg" value={formData.profileimg} onChange={handleChange} />
         </label>
+        
         <button type="submit">Submit</button>
+       
+
+       
       </form>
     </div>
   );

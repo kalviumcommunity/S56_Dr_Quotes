@@ -6,13 +6,21 @@ import { FaRegHeart } from 'react-icons/fa';
 import { FaRegComment } from 'react-icons/fa';
 import { GoShare } from 'react-icons/go';
 import { BsThreeDots } from 'react-icons/bs';
+import { GrUpdate } from "react-icons/gr";
+import { RiDeleteBin6Line } from "react-icons/ri";
+import { FaEdit } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
-const Container = ({ quotes }) => {
+const Container = ({ quotes, onDelete }) => {
   if (!quotes.length) return <p>No quotes available.</p>;
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleNextQuote = () => {
     setCurrentIndex(prevIndex => (prevIndex + 1) % quotes.length);
+  };
+
+  const handleDelete = (quoteId) => {
+    onDelete(quoteId);
   };
 
   const quote = quotes[currentIndex];
@@ -28,7 +36,8 @@ const Container = ({ quotes }) => {
             <h3>{quote.author.name}</h3> <IoCheckmarkDoneCircleSharp size={20} />
           </div>
           <div className="Options">
-            <BsThreeDots size={50} />
+            <Link to={`/UpdateForm/${quote._id}`}><FaEdit size={40} /></Link>
+            <button className='delete' onClick={() => handleDelete(quote._id)}>< RiDeleteBin6Line size={45} className='delete_icon'/></button>
           </div>
         </div>
         <blockquote className="blockquote">

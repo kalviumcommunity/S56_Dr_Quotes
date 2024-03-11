@@ -107,9 +107,11 @@
 
 }
 .Options{
+  display: flex;
   position: absolute;
   right: 40px;
   margin-top: -20px;
+  gap: 30px;
 }
 
 .blockquote::after {
@@ -130,4 +132,15 @@
   
 }
 
-
+.delete{
+  height: 50px;
+  width: 50px;
+ background-color: white;
+}
+.delete_icon{
+  color: #bf0024;
+  margin-top: -10px;
+}
+.delete:hover{
+  background-color: white;
+}
