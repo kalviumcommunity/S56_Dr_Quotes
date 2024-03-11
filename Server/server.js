@@ -39,13 +39,28 @@ app.post('/api/add-quotes', async (req, res) => {
     // Validate the incoming data
     const validationResult = validator.addQuoteSchema.validate(newQuote);
     if (validationResult.error) {
-      console.error('Validation error while adding quote:', validationResult.error.message);
+      console.error('Validation error:', validationResult.error.message);
       return res.status(400).json({ message: validationResult.error.details[0].message });
     }
     const createdQuote = await DrQuote.create(newQuote);
     res.status(201).json(createdQuote);
   } catch (error) {
     console.error('Error adding quote:', error);
+    res.status(500).json({ message: 'Server Error' });
+  }
+});
+
+// Route to fetch a specific quote by ID
+app.get('/api/quotes/:id', async (req, res) => {
+  try {
+    const quoteId = req.params.id;
+    const quote = await DrQuote.findById(quoteId);
+    if (!quote) {
+      return res.status(404).json({ message: 'Quote not found' });
+    }
+    res.json(quote);
+  } catch (error) {
+    console.error('Error fetching quote:', error);
     res.status(500).json({ message: 'Server Error' });
   }
 });
@@ -58,7 +73,7 @@ app.put('/api/quotes/:id', async (req, res) => {
     // Validate the incoming data
     const validationResult = validator.updateQuoteSchema.validate(updatedQuoteData);
     if (validationResult.error) {
-      console.error('Validation error while updating quote:', validationResult.error.message);
+      console.error('Validation error:', validationResult.error.message);
       return res.status(400).json({ message: validationResult.error.details[0].message });
     }
     const updatedQuote = await DrQuote.findByIdAndUpdate(quoteId, updatedQuoteData, { new: true });
@@ -71,7 +86,6 @@ app.put('/api/quotes/:id', async (req, res) => {
     res.status(500).json({ message: 'Server Error' });
   }
 });
-
 
 // Route to delete a quote
 app.delete('/api/quotes/:id', async (req, res) => {
