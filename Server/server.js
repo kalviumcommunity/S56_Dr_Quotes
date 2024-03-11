@@ -4,7 +4,7 @@ require('dotenv').config(); // Loading environment variables
 const DrQuote = require('./Models/users.js');
 const cors = require('cors');
 const app = express();
-// uisng cors middleware
+// Using cors middleware
 app.use(cors());
 app.use(express.json()); // Middleware to parse JSON body
 
@@ -43,11 +43,12 @@ app.post('/api/add-quotes', async (req, res) => {
     res.status(500).json({ message: 'Server Error' });
   }
 });
+
 // Route to fetch a specific quote by ID from the Dr_Quotes collection for update form.
 app.get('/api/quotes/:id', async (req, res) => {
   try {
     const quoteId = req.params.id;
-    const quote = await DrQuote.findById({ _id:id});
+    const quote = await DrQuote.findById(quoteId); // Use findById directly with quoteId
     if (!quote) {
       return res.status(404).json({ message: 'Quote not found' });
     }

@@ -19,7 +19,7 @@ const UpdateForm = ({ onUpdate }) => {
     // Fetching the quote data using the extracted ID
     const fetchQuote = async () => {
       try {
-        const response = await axios.get(`https://dr-quotes.onrender.com/api/quotes/${id}`);
+        const response = await axios.get(`http://localhost:5173/api/quotes/${id}`); // Use the correct URL for your backend
         const quoteData = response.data;
         setFormData({
           content: quoteData.content || "",
@@ -52,7 +52,6 @@ const UpdateForm = ({ onUpdate }) => {
     }
   
     const dataToSend = {
-      _id: id, 
       content: formData.content,
       speaker: formData.speaker,
       author: {
@@ -63,7 +62,7 @@ const UpdateForm = ({ onUpdate }) => {
     };
   
     try {
-      const response = await axios.put(`https://dr-quotes.onrender.com/api/quotes/${id}`, dataToSend);
+      const response = await axios.put(`http://localhost:5173/api/quotes/${id}`, dataToSend); // Use the correct URL for your backend
       if (response.status === 200) {
         onUpdate();
       } else {
