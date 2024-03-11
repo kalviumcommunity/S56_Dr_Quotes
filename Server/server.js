@@ -48,7 +48,7 @@ app.post('/api/add-quotes', async (req, res) => {
 app.get('/api/quotes/:id', async (req, res) => {
   try {
     const quoteId = req.params.id;
-    const quote = await DrQuote.findById(quoteId); // Use findById directly with quoteId
+    const quote = await DrQuote.findById(quoteId); // Using findById 
     if (!quote) {
       return res.status(404).json({ message: 'Quote not found' });
     }
@@ -81,7 +81,7 @@ app.delete('/api/quotes/:id', async (req, res) => {
   try {
     const quoteId = req.params.id;
     
-    // Delete the quote from the database based on its _id
+    // Deleting the quote from the database based on its _id
     const deletedQuote = await DrQuote.findByIdAndDelete(quoteId);
     
     if (!deletedQuote) {
