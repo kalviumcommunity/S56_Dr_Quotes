@@ -132,4 +132,15 @@
   
 }
 
-
+.delete{
+  height: 50px;
+  width: 50px;
+ background-color: white;
+}
+.delete_icon{
+  color: #bf0024;
+  margin-top: -10px;
+}
+.delete:hover{
+  background-color: white;
+}

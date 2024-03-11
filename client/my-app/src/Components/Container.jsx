@@ -37,7 +37,7 @@ const Container = ({ quotes, onDelete }) => {
           </div>
           <div className="Options">
             <Link to={`/UpdateForm/${quote._id}`}><FaEdit size={40} /></Link>
-            <button onClick={() => handleDelete(quote._id)}><RiDeleteBin6Line size={40} /></button>
+            <button className='delete' onClick={() => handleDelete(quote._id)}>< RiDeleteBin6Line size={45} className='delete_icon'/></button>
           </div>
         </div>
         <blockquote className="blockquote">
