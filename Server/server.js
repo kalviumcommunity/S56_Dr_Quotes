@@ -4,7 +4,7 @@ const DrQuote = require('./Models/users.js');
 const cors = require('cors');
 const app = express();
 const { validateAddQuote, validateUpdateQuote } = require('./validator'); // Importing the validator functions
-require('dotenv').config();
+await require('dotenv').config();
 app.use(cors());
 app.use(express.json());
 
