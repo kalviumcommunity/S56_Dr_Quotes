@@ -33,7 +33,7 @@ const Container = ({ quotes }) => {
           </div>
           <div className="Options">
             {/* Pass quote ID to UpdateForm */}
-            <Link to={`/UpdateForm/${quote.id}`}><FaEdit size={40} /></Link>
+            <Link to={`/UpdateForm/${quote._id}`}><FaEdit size={40} /></Link>
             <RiDeleteBin6Line size={40} />
           </div>
         </div>

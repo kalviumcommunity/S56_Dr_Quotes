@@ -50,8 +50,9 @@ const UpdateForm = ({ onUpdate }) => {
       console.error('Quote ID is undefined.');
       return;
     }
-
+  
     const dataToSend = {
+      _id: id, 
       content: formData.content,
       speaker: formData.speaker,
       author: {
@@ -60,7 +61,7 @@ const UpdateForm = ({ onUpdate }) => {
         profileimg: formData.profileimg
       }
     };
-
+  
     try {
       const response = await axios.put(`https://dr-quotes.onrender.com/api/quotes/${id}`, dataToSend);
       if (response.status === 200) {
@@ -72,6 +73,7 @@ const UpdateForm = ({ onUpdate }) => {
       console.error('Error updating quote:', error);
     }
   };
+  
 
   return (
     <>
