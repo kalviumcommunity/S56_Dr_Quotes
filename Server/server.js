@@ -5,7 +5,7 @@ const cors = require('cors');
 const app = express();
 const jwt = require("jsonwebtoken")
 const { validateAddQuote, validateUpdateQuote } = require('./validator'); // Importing the validator functions
-await require('dotenv').config();
+require('dotenv').config();
 app.use(cors());
 app.use(express.json());
 
