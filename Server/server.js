@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const DrQuote = require('./Models/users.js');
 const cors = require('cors');
 const app = express();
+const jwt = require("jsonwebtoken")
 const { validateAddQuote, validateUpdateQuote } = require('./validator'); // Importing the validator functions
 await require('dotenv').config();
 app.use(cors());
@@ -101,7 +102,12 @@ app.delete('/api/quotes/:id', async (req, res) => {
     res.status(500).json({ message: 'Server Error' });
   }
 });
-
+app.post("/api/auth",(req,res)=>{
+  let data = req.body
+  var token = jwt.sign({ user: data.username }, process.env.secret);
+  console.log(token)
+  res.send(token)
+})
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
