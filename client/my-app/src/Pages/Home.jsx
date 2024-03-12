@@ -26,7 +26,7 @@ function Home() {
   const handleDelete = async (quoteId) => {
     try {
       await axios.delete(`https://dr-quotes.onrender.com/api/quotes/${quoteId}`);
-      // Filter out the deleted quote from the quotes state
+      // Filtering out the deleted quote from the quotes state
       setQuotes(quotes.filter(quote => quote._id !== quoteId));
     } catch (error) {
       console.error('Error deleting quote:', error);

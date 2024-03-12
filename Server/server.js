@@ -3,8 +3,8 @@ const mongoose = require('mongoose');
 const DrQuote = require('./Models/users.js');
 const cors = require('cors');
 const app = express();
-const { validateAddQuote, validateUpdateQuote } = require('./validator'); // Import validator functions
-require('dotenv').config();
+const { validateAddQuote, validateUpdateQuote } = require('./validator'); // Importing the validator functions
+await require('dotenv').config();
 app.use(cors());
 app.use(express.json());
 
@@ -35,7 +35,7 @@ app.get('/api/quotes', async (req, res) => {
 app.post('/api/add-quotes', async (req, res) => {
   try {
     const newQuote = req.body;
-    // Validate the incoming data using the validateAddQuote function
+    // Validating the incoming data using the validateAddQuote function
     const validationResult = validateAddQuote(newQuote);
     if (validationResult.error) {
       console.error('Validation error:', validationResult.error.message);
@@ -53,7 +53,7 @@ app.post('/api/add-quotes', async (req, res) => {
 app.get('/api/quotes/:id', async (req, res) => {
   try {
     const quoteId = req.params.id;
-    const quote = await DrQuote.findById(quoteId);
+    const quote = await DrQuote.findById(quoteId); // Using findById 
     if (!quote) {
       return res.status(404).json({ message: 'Quote not found' });
     }
@@ -69,7 +69,7 @@ app.put('/api/quotes/:id', async (req, res) => {
   try {
     const quoteId = req.params.id;
     const updatedQuoteData = req.body;
-    // Validate the incoming data using the validateUpdateQuote function
+    // Validating the incoming data using the validateUpdateQuote function
     const validationResult = validateUpdateQuote(updatedQuoteData);
     if (validationResult.error) {
       console.error('Validation error:', validationResult.error.message);
@@ -90,6 +90,7 @@ app.put('/api/quotes/:id', async (req, res) => {
 app.delete('/api/quotes/:id', async (req, res) => {
   try {
     const quoteId = req.params.id;
+
     const deletedQuote = await DrQuote.findByIdAndDelete(quoteId);
     if (!deletedQuote) {
       return res.status(404).json({ message: 'Quote not found' });
