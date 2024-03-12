@@ -9,20 +9,11 @@ const Login = () => {
     const handleLogin = () => {
         document.cookie = `username=${username}; max-age=3600`; // Seting username in cookie for 1 hour
         setLoggedIn(true);
-        axios.post("https://dr-quotes.onrender.com/api/auth",{username})
-        .then((result)=>{
-            document.cookie = `token=${result.data}; expires=` +new Date(2030,0,1).toUTCString
-
-        })
-        .catch((err)=>console.log(err))
-        navigate("/")
         console.log('Login successful');
     };
 
     const handleLogout = () => {
         document.cookie = 'username=; max-age=0'; // Removing the username cookie and token
-        document.cookie = `token=; max-age=0 `  ;   
-        window.location.reload()
         setLoggedIn(false);
         console.log('Logout successful');
     };
