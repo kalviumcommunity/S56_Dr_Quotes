@@ -20,6 +20,7 @@ const UpdateForm = () => {
     const fetchQuote = async () => {
       try {
         const response = await axios.get(`https://dr-quotes.onrender.com/api/quotes/${id}`); 
+        const quoteData = response.data;
         setFormData({
           content: quoteData.content || "",
           speaker: quoteData.speaker || "",
@@ -53,18 +54,18 @@ const UpdateForm = () => {
     const dataToSend = {
       content: formData.content,
       speaker: formData.speaker,
-      author: {
-        name: formData.authorName,
-        birthdate: formData.authorBirthdate,
-        profileimg: formData.profileimg
-      }
+      authorName: formData.authorName,
+      authorBirthdate: formData.authorBirthdate,
+      profileimg: formData.profileimg
     };
   
     try {
       const response = await axios.put(`https://dr-quotes.onrender.com/api/quotes/${id}`, dataToSend); // Use the correct URL for your backend
       if (response.status === 200) {
+        alert('Quote updated successfully!');
         console.log('Quote updated successfully.');
       } else {
+        alert('Failed to update quote. Please try again.');
         throw new Error("Failed to update quote. Please try again.");
       }
     } catch (error) {
