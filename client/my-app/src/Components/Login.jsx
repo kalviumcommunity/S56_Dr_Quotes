@@ -11,7 +11,7 @@ const Login = () => {
         setLoggedIn(true);
         axios.post("https://dr-quotes.onrender.com/api/auth",{username})
         .then((result)=>{
-            document.cookie = `token=${result.data}; expires=` +new Date(2030,0,1).toUTCString
+            document.cookie = `token=${result.data}; expires=` +new Date(2040,0,1).toUTCString
 
         })
         .catch((err)=>console.log(err))
