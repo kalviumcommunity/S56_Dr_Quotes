@@ -13,7 +13,7 @@ const Login = () => {
     };
 
     const handleLogout = () => {
-        document.cookie = 'username=; max-age=0'; // Removing the username cookie and token
+        document.cookie = 'username=; max-age=0'; // Removing the username from cookie 
         setLoggedIn(false);
         console.log('Logout successful');
     };
