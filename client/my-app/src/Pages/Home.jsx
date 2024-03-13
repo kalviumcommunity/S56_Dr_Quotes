@@ -40,7 +40,7 @@ function Home() {
 
   return (
     <>
-       <Nav onAuthorSelect={handleAuthorSelect} />
+       <Nav quotes={quotes} onAuthorSelect={handleAuthorSelect} />
       {loading ? (
          <ReactLoading type="bars" color="blue" height={200} width={80} />
       ) : (

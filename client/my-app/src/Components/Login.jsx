@@ -3,14 +3,14 @@ import "./Login.css"
 import { FaUserCircle } from "react-icons/fa";
 import axios from 'axios';
 import Cookies from 'js-cookie';
-// importing js-cookie pakage
+import { Link } from 'react-router-dom';
 
-const Login = () => {
+const Login = ({ onLogin }) => {
     const [username, setUsername] = useState('');
     const [loggedIn, setLoggedIn] = useState(false);
 
     const handleLogin = () => {
-        document.cookie = `username=${username}; max-age=3600`; // Seting username in cookie for 1 hour
+        document.cookie = `username=${username}; max-age=3600`; 
         setLoggedIn(true);
         axios.post("https://dr-quotes.onrender.com/api/auth",{username})
         .then((result)=>{
@@ -18,46 +18,32 @@ const Login = () => {
 
         })
         .catch((err)=>console.log(err))
-        // navigate("/")
-        console.log('Login successful');
+
     };
 
-    const handleLogout = () => {
-        document.cookie = `username=${username}; max-age=0`; // Removing the username and token from cookie 
-        setLoggedIn(false);
-        console.log('Logout successful');
-    };
+
+
     return (
         <>
-        
-            {!loggedIn ? (
                  <div className='main-container'>
-                    
-                 
-                <div className='form-box'>
-                <div className='user-icon'> <FaUserCircle size={140} /></div>
-                <div className='input-box'>
-                <label htmlFor="input">Your Username :</label>
-                    <input
-                        type="text"
-                        placeholder="Username"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                    />
-                    <label htmlFor="input">Your Password :</label>
-                    <input type="password" 
-                    placeholder='Password'/>
-                    <button  className='login-bttn'  onClick={handleLogin}>Login</button>
-                    </div></div>
-                </div>
-                 ) : (
-                <div className='main-container'>
                     <div className='form-box'>
-                    <h1 style={{textAlign:"center",marginTop:"120px"}}>Welcome, {Cookies.get('username')}</h1>
-                    <button onClick={handleLogout}>Logout</button>
+                        <Link to={"/"}><button className='exit'>X</button></Link>
+                        <div className='user-icon'> <FaUserCircle size={140} /></div>
+                        <div className='input-box'>
+                            <label htmlFor="input">Your Username :</label>
+                            <input
+                                type="text"
+                                placeholder="Username"
+                                value={username}
+                                onChange={(e) => setUsername(e.target.value)}
+                            />
+                            <label htmlFor="input">Your Password :</label>
+                            <input type="password" placeholder='Password'/>
+                            <Link to={"/"}><button className='login-bttn' onClick={handleLogin}>Login</button></Link>
+                        </div>
                     </div>
                 </div>
-            )}
+          
         </>
     );
 };

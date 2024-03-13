@@ -11,7 +11,7 @@ function App() {
     <Routes>
         <Route path="/Login" element={<LoginPage/>} />
      <Route path="/UpdateForm/:id" element={<UpdateForm/>} />
-     <Route path="/quote-builder" element={<Form />} />
+     <Route path="/quote-builder" element={<Form/>} />
      <Route path="/" element={<Home />} />
     </Routes>
   );

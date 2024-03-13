@@ -8,6 +8,7 @@ import { GoShare } from 'react-icons/go';
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { FaEdit } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import { FaHeart } from "react-icons/fa";
 
 const Container = ({ quotes, onDelete, selectedAuthor }) => {
   if (!quotes.length) return <p>No more quotes available.</p>;

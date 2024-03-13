@@ -73,11 +73,11 @@ const AddQuoteForm = () => {
           <input type="text" required name="speaker" value={formData.speaker} onChange={handleChange} />
         </label>
         <label>
-          Author Name:
+          User Name:
           <input type="text" required name="authorName" value={formData.authorName} onChange={handleChange} />
         </label>
         <label>
-          Author Birthdate:
+          User Birthdate:
           <input type="text" required name="authorBirthdate" value={formData.authorBirthdate} onChange={handleChange} />
         </label>
         <label>
