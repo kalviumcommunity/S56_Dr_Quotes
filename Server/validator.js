@@ -10,16 +10,16 @@ const authorSchema = Joi.object({
 });
 // Validation schema for adding
 const addQuoteSchema = Joi.object({
-  content: Joi.string().required(),
-  speaker: Joi.string().required(),
-  author: authorSchema.required()
+name: Joi.string().trim().required(),
+content: Joi.string().trim().required(),
+speaker: Joi.string().trim().required(),
 });
 
 // Validation schema for updating
 const updateQuoteSchema = Joi.object({
-  content: Joi.string().required(),
-  speaker: Joi.string().required(),
-  author: authorSchema.required()
+name: Joi.string().trim().required(),
+content: Joi.string().trim().required(),
+speaker: Joi.string().trim().required(),
 });
 
 // Create validator functions for add and update schemas
