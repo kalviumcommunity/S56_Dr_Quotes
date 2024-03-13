@@ -23,6 +23,11 @@ function Home() {
     fetchData();
   }, []);
 
+  const [selectedAuthor, setSelectedAuthor] = useState('');
+
+  const handleAuthorSelect = (authorName) => {
+    setSelectedAuthor(authorName);
+  };
   const handleDelete = async (quoteId) => {
     try {
       await axios.delete(`https://dr-quotes.onrender.com/api/quotes/${quoteId}`);
@@ -35,14 +40,15 @@ function Home() {
 
   return (
     <>
-      <Nav/>
+       <Nav onAuthorSelect={handleAuthorSelect} />
       {loading ? (
          <ReactLoading type="bars" color="blue" height={200} width={80} />
       ) : (
-        <Container quotes={quotes} onDelete={handleDelete} />
+        <Container  selectedAuthor={selectedAuthor} quotes={quotes} onDelete={handleDelete} />
       )}
     </>
   );
 }
 
 export default Home;
+
