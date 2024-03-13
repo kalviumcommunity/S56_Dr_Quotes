@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import "./Login.css"
 import { FaUserCircle } from "react-icons/fa";
+import axios from 'axios';
+import Cookies from 'js-cookie';
+// importing js-cookie pakage
 
 const Login = () => {
     const [username, setUsername] = useState('');
@@ -15,16 +18,25 @@ const Login = () => {
 
         })
         .catch((err)=>console.log(err))
-        navigate("/")
+        // navigate("/")
         console.log('Login successful');
     };
 
     const handleLogout = () => {
-        document.cookie = 'username=; max-age=0'; // Removing the username and token from cookie 
+        document.cookie = `username=${username}; max-age=0`; // Removing the username and token from cookie 
         setLoggedIn(false);
         console.log('Logout successful');
     };
-
+    const getUsernameFromCookie = () => {
+        const cookies = document.cookie.split(';');
+        for (let cookie of cookies) {
+            const [name, value] = cookie.split('=');
+            if (name.trim() === 'username') {
+                return value;
+            }
+        }
+        return '';
+    };
     return (
         <>
         
@@ -43,7 +55,7 @@ const Login = () => {
                         onChange={(e) => setUsername(e.target.value)}
                     />
                     <label htmlFor="input">Your Password :</label>
-                    <input type="text" 
+                    <input type="password" 
                     placeholder='Password'/>
                     <button  className='login-bttn'  onClick={handleLogin}>Login</button>
                     </div></div>
@@ -51,7 +63,7 @@ const Login = () => {
                  ) : (
                 <div className='main-container'>
                     <div className='form-box'>
-                    <h1 style={{textAlign:"center",marginTop:"120px"}}>Welcome, {document.cookie.split('=')[1]}</h1>
+                    <h1 style={{textAlign:"center",marginTop:"120px"}}>Welcome, {Cookies.get('username')}</h1>
                     <button onClick={handleLogout}>Logout</button>
                     </div>
                 </div>
