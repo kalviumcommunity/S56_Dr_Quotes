@@ -17,7 +17,7 @@ const Login = () => {
             document.cookie = `token=${result.data}; expires=` +new Date(2040,0,1).toUTCString
 
         })
-        .catch((err)=>console.log(err))
+        .catch((err)=>console.log('Error Login Unsucessfull'))
         // navigate("/")
         console.log('Login successful');
     };
@@ -26,16 +26,6 @@ const Login = () => {
         document.cookie = `username=${username}; max-age=0`; // Removing the username and token from cookie 
         setLoggedIn(false);
         console.log('Logout successful');
-    };
-    const getUsernameFromCookie = () => {
-        const cookies = document.cookie.split(';');
-        for (let cookie of cookies) {
-            const [name, value] = cookie.split('=');
-            if (name.trim() === 'username') {
-                return value;
-            }
-        }
-        return '';
     };
     return (
         <>
