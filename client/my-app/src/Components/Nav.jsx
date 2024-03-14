@@ -62,6 +62,7 @@ const Nav = ({ onAuthorSelect, quotes }) => {
             <Link to="/">
             <button style={{ width: "150px", height: "50px" }} onClick={handleLogout}>Logout </button>
           </Link>)}
+
         </div>
       </nav>
     </>
