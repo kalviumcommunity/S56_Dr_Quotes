@@ -23,6 +23,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     margin-top: 2rem;
   }
 
@@ -143,4 +144,10 @@
 }
 .delete:hover{
   background-color: white;
+}
+.dislikes{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
 }

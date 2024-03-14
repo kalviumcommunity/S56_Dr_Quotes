@@ -6,7 +6,6 @@ import UpdateForm from './Components/UpdateForm';
 import LoginPage from './Pages/LoginPage';
 
 function App() {
-  
   return (
     <Routes>
         <Route path="/Login" element={<LoginPage/>} />
