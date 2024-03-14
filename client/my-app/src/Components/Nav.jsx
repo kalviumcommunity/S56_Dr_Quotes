@@ -15,7 +15,7 @@ const Nav = ({ onAuthorSelect, quotes }) => {
   let username = Cookies.get('username');
 
   // Extract unique author names from the quotes
-  const uniqueAuthors = [...new Set(quotes.map(quote => quote.author.name))];
+  const uniqueAuthors = quotes ? [...new Set(quotes.map(quote => quote.author.name))] : [];
 
   const handleAuthorChange = (event) => {
     const authorName = event.target.value;
@@ -44,7 +44,7 @@ const Nav = ({ onAuthorSelect, quotes }) => {
               value={selectedAuthor}
               onChange={handleAuthorChange}
             >
-              {/* Map over the unique authors */}
+              {/* Maping over the unique authors */}
               {uniqueAuthors.map(author => (
                 <MenuItem key={author} value={author}>{author}</MenuItem>
               ))}

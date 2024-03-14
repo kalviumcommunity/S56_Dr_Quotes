@@ -54,13 +54,15 @@ const UpdateForm = () => {
     const dataToSend = {
       content: formData.content,
       speaker: formData.speaker,
-      authorName: formData.authorName,
-      authorBirthdate: formData.authorBirthdate,
-      profileimg: formData.profileimg
+      author: {
+        name: formData.authorName,
+        birthdate: formData.authorBirthdate,
+        profileimg: formData.profileimg
+      }
     };
   
     try {
-      const response = await axios.put(`https://dr-quotes.onrender.com/api/quotes/${id}`, dataToSend); // Use the correct URL for your backend
+      const response = await axios.put(`https://dr-quotes.onrender.com/api/quotes/${id}`, dataToSend); 
       if (response.status === 200) {
         alert('Quote updated successfully!');
         console.log('Quote updated successfully.');

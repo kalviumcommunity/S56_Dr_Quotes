@@ -1,6 +1,6 @@
 const Joi = require('joi');
 
-// Reusable validator function
+// validator function
 const validator = (schema) => (payload) => schema.validate(payload, { abortEarly: false });
 
 const authorSchema = Joi.object({
@@ -21,8 +21,6 @@ name: Joi.string().trim().required(),
 content: Joi.string().trim().required(),
 speaker: Joi.string().trim().required(),
 });
-
-// Create validator functions for add and update schemas
 const validateAddQuote = validator(addQuoteSchema);
 const validateUpdateQuote = validator(updateQuoteSchema);
 
